@@ -39,7 +39,7 @@ jobs:
           action: ${{ github.workspace }}/action.yaml
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
-          pretty: true
+          pretty: false
           versioning_enabled: true
           version_override: v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }}
       - name: Reset major version tag

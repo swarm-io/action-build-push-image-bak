@@ -5,7 +5,7 @@
   "ci": false,
   "plugins": [
     ["@semantic-release/exec", {
-      "successCmd": "./success.sh ${nextRelease.version} ${nextRelease}"
+      "successCmd": "./success.sh ${nextRelease.version}"
     }],
     ["@semantic-release/commit-analyzer", {
       "preset":  "conventionalcommits",

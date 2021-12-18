@@ -1,4 +1,4 @@
-name: Build and Push image #
+name: Build and Push image
 description: 'Builds an image, pushes to artifact registry, and caches to gha as well as the `cache` tag'
 inputs:
   secrets:

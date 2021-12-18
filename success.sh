@@ -13,4 +13,4 @@ echo "deleting remote tag"
 git push -d origin $majorTag || true
 # create new tag
 echo "duplicating tag $newTag as $majorTag"
-git tag $newTag $majorTag
+git tag $majorTag

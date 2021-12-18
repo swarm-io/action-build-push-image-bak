@@ -1,12 +1,15 @@
 name: Semantic Release
 on:
-  pull_request:
-    types:
-      - closed
+#  pull_request:
+#    types:
+#      - closed
+#    branches:
+#      - main
+#    paths:
+#      - action.yaml
+  push:
     branches:
       - main
-    paths:
-      - action.yaml
 jobs:
   semantic-release:
     if: github.event.pull_request.merged == true
@@ -33,11 +36,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_RUNNER_TOKEN }}
       - uses: bitflight-devops/github-action-readme-generator@v1.0.12a
         with:
+          action: ${{ github.workspace }}/action.yaml
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
           pretty: true
           versioning_enabled: true
-          version_override: ${{ steps.semantic-release-dry-run.outputs.new_release_major_version }}
+          version_override: v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }}
       - name: Reset major version tag
         run: |
           git tag -d v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }} || true

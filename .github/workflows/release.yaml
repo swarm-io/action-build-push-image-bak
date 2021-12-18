@@ -44,8 +44,8 @@ jobs:
           version_override: v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }}
       - name: Reset major version tag
         run: |
-          git tag -d $(git tag -l)
-          git tag -d origin v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }} || true
+          git tag -d v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }} || true
+          git push -d origin v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }} || true
           git tag v${{ steps.semantic-release-dry-run.outputs.new_release_major_version }}
       - id: semantic-release
         uses: cycjimmy/semantic-release-action@v2

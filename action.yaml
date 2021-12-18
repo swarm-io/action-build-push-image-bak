@@ -4,8 +4,7 @@ inputs:
   secrets:
     description: docker build secrets, newline separated string key=value
     required: false
-    default: |
-      "gitPat=${{ secrets.GIT_RUNNER_TOKEN }}"
+    default: '|\n  gitPat=${{ secrets.GIT_RUNNER_TOKEN }}'
   tag-name:
     description: tag name, i.e. 'event-stream'
     required: false
@@ -13,9 +12,7 @@ inputs:
   tags:
     description: git tags to push
     required: false
-    default: |
-      ${{ secrets.GAR_IMAGES_REPO }}/${{ inputs.tag-name }}:${{ github.event.release.tag_name }}
-      ${{ secrets.GAR_IMAGES_REPO }}/${{ inputs.tag-name }}:latest
+    default: '|\n  ${{ secrets.GAR_IMAGES_REPO }}/${{ inputs.tag-name }}:${{ github.event.release.tag_name }}\n  ${{ secrets.GAR_IMAGES_REPO }}/${{ inputs.tag-name }}:latest'
 runs:
   using: composite
   steps:

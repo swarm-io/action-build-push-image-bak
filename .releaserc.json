@@ -5,7 +5,7 @@
   "ci": false,
   "plugins": [
     ["@semantic-release/exec", {
-      "successCmd": "./success.sh ${nextRelease.version}"
+      "prepareCmd": "majorTag=v$(echo ${nextRelease.version} | grep -o '[^-]*$' | cut -d. -f1) && git tag -d $majorTag || true && git push -d origin $majorTag || true && git tag $majorTag"
     }],
     ["@semantic-release/commit-analyzer", {
       "preset":  "conventionalcommits",

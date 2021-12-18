@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/swarm-io/action-build-push-image/compare/v1.0.2...v1.0.3) (2021-12-18)
+
+
+### Bug Fixes
+
+* delete local tags before release ([1594b08](https://github.com/swarm-io/action-build-push-image/commit/1594b088c1e09cd9515034755df831474cbdc767))
+
 ## [1.0.2](https://github.com/swarm-io/action-build-push-image/compare/v1.0.1...v1.0.2) (2021-12-18)
 
 

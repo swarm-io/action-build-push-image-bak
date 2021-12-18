@@ -31,7 +31,7 @@ jobs:
         env:
           # github.token can't trigger workflows, we want the created release to trigger other workflows, so use the runner token
           GITHUB_TOKEN: ${{ secrets.GIT_RUNNER_TOKEN }}
-      - uses: bitflight-devops/github-action-readme-generator@v1.0.12
+      - uses: bitflight-devops/github-action-readme-generator@v1.0.12a
         with:
           owner: ${{ github.repository_owner }}
           repo: ${{ github.event.repository.name }}
